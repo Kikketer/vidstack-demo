@@ -68,6 +68,7 @@ function App() {
         src={videoUrl}
         load="visible"
         onLoadedMetadata={() => setVideoReady(true)}
+        poster="https://st2.depositphotos.com/1031343/6062/v/950/depositphotos_60622807-stock-illustration-keep-it-simple-stamp.jpg"
         controls
       >
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
