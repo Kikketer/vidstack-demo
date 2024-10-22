@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   MediaPlayer,
   MediaProvider,
@@ -33,6 +33,12 @@ const WithVideoContext = ({ videoReady }: { videoReady?: boolean }) => {
     defaultEnd: fakeEnd,
   });
 
+  useEffect(() => {
+    if (videoReady) {
+      provider?.setCurrentTime(trimStart);
+    }
+  }, [videoReady]);
+
   return (
     <>
       <TrimSlider
@@ -64,7 +70,7 @@ function App() {
         onLoadedMetadata={() => setVideoReady(true)}
         controls
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           <MediaProvider />
           <WithVideoContext videoReady={videoReady} />
         </div>
