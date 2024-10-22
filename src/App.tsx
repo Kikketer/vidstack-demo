@@ -4,6 +4,7 @@ import {
   MediaProvider,
   useMediaProvider,
   useMediaState,
+  MediaPlayerInstance,
 } from "@vidstack/react";
 import { TrimSlider } from "./TrimSlider.tsx";
 import { useTrimSlider } from "./useTrimSlider.tsx";
@@ -58,7 +59,7 @@ const WithVideoContext = ({ videoReady }: { videoReady?: boolean }) => {
 
 function App() {
   const [videoReady, setVideoReady] = useState(false);
-  const playerRef = useRef<any>(null);
+  const playerRef = useRef<MediaPlayerInstance>(null);
 
   return (
     <div className="App">
